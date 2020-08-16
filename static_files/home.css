@@ -1,0 +1,119 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTtWdN1iVFMWAGwxqZJlcqLyRtz2y4wED4ysw&usqp=CAU);
+    
+  }
+  
+  /* Style the header */
+  .header {
+    background-color: black;
+    padding: 20px;
+    text-align: center;
+    color:white;
+  }
+  span.sp{
+    color:red;
+    padding-left:20px;
+    font-size: 60px;
+    font-style:italic;
+  }
+  
+  /* Style the top navigation bar */
+  .topnav {
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  /* Style the topnav links */
+  .topnav a {
+    float: right;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 100px;
+    text-decoration: none;
+    font-size:20px;
+  }
+  
+  /* Change color on hover */
+  .topnav a:hover {
+    background-color:black;
+    color:red;
+  }
+  
+  /* Create three unequal columns that floats next to each other */
+  .column {
+    float: left;
+    padding: 10px;
+    height:250px;
+  }
+  
+  /* Left and right column */
+  .column.side_1 {
+    width: 25%;
+    background-image: url(https://cache.desktopnexus.com/thumbseg/1569/1569442-bigthumbnail.jpg);
+    color:red;
+    font-style:italic;
+    padding-left: 185px;
+    padding-top:95px;
+  }
+  .column.side{
+      width: 25%;
+      background-color: black;
+  }
+  
+  /* Middle column */
+  .column.middle {
+    width: 50%;
+    background-color: black;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 600px) {
+    .column.side, .column.middle {
+      width: 100%;
+    }
+  }
+  
+  /* Style the footer */
+  .footer {
+    background-color: #333;
+    padding: 10px;
+    text-align: center;
+    color:white;
+    font-size:25px;
+    font-weight: bold;
+  }
+  span.u{
+      color:red;
+      font-size:30px;
+      font-weight: bold;
+      padding:15px;
+      margin-left: 15px;
+      background-color: black;
+      border-radius: 50%;
+  }
+  a.here{
+      text-decoration: none;
+      color:white;
+      padding :15px;
+      font-size:25px;
+      font-style: italic;
+  }
+  a.here:hover{
+    background-color:black;
+    color:red;
+    padding-top: 40px;
+    padding-bottom: 38px;
+  }

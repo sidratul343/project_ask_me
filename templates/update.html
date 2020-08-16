@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="{% static 'profile.css'%}">
+    <style>
+      h3.msg{
+        text-align: center;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        background-color: rgb(221, 105, 27);
+        color:white;
+        padding:5px;
+        letter-spacing: 2px;
+        word-spacing: 4px;
+      }
+    </style>
+</head>
+<body>
+    <div class="row">
+    <div class="column side">
+        <h1 class="header">OOPS! Looks like you need to <span class = 'sp'>UPDATE</span> your details. Here you <span class = 'sp'>GO!</span> </h1>
+        <div class="r1"></div>
+        <img src="https://quantumdrive.in/wp-content/uploads/2017/04/solution-icon-large.png",alt="logo" class="book">
+        <div class="r1"></div>
+    </div>
+    <form action="/update/" method="post" enctype="multipart/form-data">
+      {%csrf_token %}
+        <div class="column middle">
+          <div class="image">
+            <div class="r1"></div>
+            <img src="https://thumbs.dreamstime.com/b/icon-registration-registry-registration-151047317.jpg" alt="Avatar" class="avatar">
+            <div class="r1"></div>
+          </div>
+        <div class="container">
+          <h2>Update your details</h2>
+          <div class="r2"></div>
+          <br><br>
+
+          <label for="age"><b>Age</b></label>
+          <input type="text" placeholder="Enter Your Age" name="age" required>
+
+          <label for="email" ><b>E-mail</b></label>
+          <input type="email" placeholder="Enter E-mail" name="email" class="mail" required>
+
+          <label for="gender"><b>Your gender:</b></label>
+          <input type="text" placeholder="Your gender" name="gender" required>
+         
+          <label for="occupation"><b>Your occupation:</b></label>
+          <input type="text" placeholder="your occupation" name="occupation" required>
+         
+          <label for="clas"><b>Your address:</b></label>
+          <input type="text" placeholder="Enter Your current address" name="clas" >
+
+          <label for="dept"><b>Your Department?</b></label>
+          <input type="text" placeholder="Enter Your department name" name="dept" >
+
+          <label for="workplace"><b>Your Educational instituion/workplace:</b></label>
+          <input type="text" placeholder="Your Educational instituion/workplace:" name="workplace" ><br><br>
+
+          <label for="img"><b>Change your profile picture:</b></label><br><br>
+          <input type="file" id="img" name="img" accept="image/*"><br><br>
+
+          <label for = "description"><b>Update your bio:</b></label><br><br>
+          <textarea rows = "5" cols = "60" name = "description">
+            
+         </textarea><br><br>
+          
+          <p>If you want to share with us your projects/research/achievements,</p>
+          <label for="files">Select files:</label>
+         <input type="file" id="files" name="files" ><br><br>
+
+          <button type="submit">Done</button>
+        </div>
+      </form>
+      </div>
+      </div>
+</body>
+</html>

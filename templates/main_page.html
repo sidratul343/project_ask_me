@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>main page</title>
+    <link rel='stylesheet' href="{% static 'main_page.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    .footer{
+        height: 3px;
+        width:100%;
+        background-color: rgb(16, 52, 119);
+      }
+        h3.msg{
+          text-align: center;
+          font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+          background-color: white;
+          padding:5px;
+          color:black;
+        }
+        .email{
+            background-color: rgb(73, 75, 92);
+            width:30vw;
+            text-align: center;
+            margin-left: 5vw;
+        }
+        .mail{
+            color:rgb(194, 190, 190);
+            font-size: 30px;
+            padding:5px;
+            text-decoration: none;
+        }
+        a.mail:hover{
+            color:rgb(253, 251, 251);
+            
+        }
+</style>
+</head>
+<body>
+    <p class="row" style="margin:0;">
+        <div class = 'column side'><b>ASK ME!</b></div><div class = 'column right'>BIGGEST QUESTION-ANSWER SITE</div>
+    </p>
+    <div class="sidenav">
+        <a href="{% url 'personal'%}">logout</a>
+        <a href="{% url 'explore_ques'%}">Explore</a>
+        <a href="{% url 'ask'%}">Ask Questions</a>
+        <a href="{% url 'personal'%}">About Us</a>
+        <a href="{% url 'personal'%}">Your profile</a>
+        <a href="{% url 'home'%}">Home</a>
+    </div>
+           <div class="topnav">
+                  <div class="search-container">
+                        <form action="/main_page/">
+
+                            <input type="text" placeholder="Search.." name="search">
+                            <button type="submit" class="butt"><i class="fa fa-search"></i></button>
+                        </form>
+                    </div>
+            </div>
+            <div>
+                {% for messages in messages %}
+                <h3 class="msg">{{messages}}</h3>
+                {% endfor %}
+              </div>
+            
+        {% for dests in dests %}  
+        <div class="row" style="margin-left:220px;">
+            <div class = "column2 side2">
+                {%if dests.picture%}
+                <img src="{{ dests.picture.url }}" class="dp" style="object-fit: cover;">
+                {%endif%}
+                {%if dests.name%}
+                <h3 class="nm" >{{dests.name}}</h3>
+                {%endif%}
+                {%if dests.age%}
+                <p>{{dests.age}} years old</p>
+                {%endif%}
+                {%if dests.address%}
+                <p>Lives in {{dests.address}}</p>
+                {%endif%}
+                {%if dests.workplace%}
+                <p>{{dests.workplace}},  {%if dests.department%} department of {{dests.department}}{%endif%}</p>
+                {%endif%}
+                {%if dests.email%}
+                <p>E-mail : {{dests.email}}</p>
+                {%endif%}
+            </div>
+            <div class = "column2 right2">
+                <h1 class="abt">About me</h1>
+                {%if dests.text%}
+                <p class="desc">{{dests.text}}</p>
+                {%endif%}
+                {%if dests.achievements%}
+                <p>My works:  <a href="{{ dests.achievements.url }}">{{dests.achievements}}</a></p>
+                {%endif%}
+                <div class="email"><a class="mail" style="text-decoration: none; " href="https://mail.google.com/mail/?view=cm&fs=1&to={{dests.email}}&su=SUBJECT&body=BODY" target="_blank">Send a personal text</a></div>
+            </div>
+        </div>
+        <br><br><br><br><br>
+        <div class="footer"></div>
+        
+    {%endfor%}
+</body>
+
+</html>

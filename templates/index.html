@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore</title>
+    <link rel='stylesheet' href="{% static 'front.css' %}">
+    <style>
+        * {
+            box-sizing: border-box;
+          }
+          
+          body {
+            margin: 0; 
+          }
+        .ad{
+            margin-left:46.5%;
+            border:solid 2px white;
+            width:90px;
+            height: 90px;
+            padding-top: 23px;
+            border-radius: 50%;
+            font-size: 30px;
+            text-align: center;
+        }
+        .ad a:hover {
+            background-color:white;
+            color:rgb(51, 4, 4);
+            font-weight: bold;
+            letter-spacing: 1px;
+          }
+        .admin{
+            margin-left:80%;
+            margin-top: 500px;
+            text-decoration: none;
+            color:rgb(252, 249, 246);
+            border:solid 2px white;
+            padding:20px;
+            
+            border-radius: 90%;
+        }
+        a.reg2{
+            height:75px;
+        }
+        a.log2{
+            height:75px;
+            width: 115px;
+        }
+        .reg{
+            padding-top:20px;
+            letter-spacing: 1px;
+            word-spacing: 3px;
+        }
+    </style>
+
+
+
+</head>
+<body>
+    <p class="side_text">HELLO <span style="font-size:80px; background-color:rgb(3, 3, 71)">GENIOUS!</span> LET'S GIVE AND TAKE</p>
+    <h1 class="top"></h1>
+    <p class="ad"><a href="http://localhost:8000/admin/login/?next=/admin/" class="admin">ADMIN</a></p>
+    <div class="maroon">
+        <p class="reg">Hey Buddy, New here??  <span class="log">Or, You Here Already?</span></p>
+        <a href = "{% url 'reg'%}" class="reg2">REGISTER <a href="{% url 'login'%}" class="log2">LOGIN</a></a>
+    </div>
+</body>
+</html>

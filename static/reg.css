@@ -1,0 +1,75 @@
+body.rg{
+    background-image: url(https://www.whylearn.com.sg/assets/images/cslider/e-learning%20wallpaper.png);
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+    background-size:cover;
+}
+form{
+    float:right;
+    background-color:  rgba(7, 2, 36, 0.6);
+    width:35vw;
+    height:100%;
+}
+  /* Full-width inputs */
+  input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  
+  /* Set a style for all buttons */
+  button {
+    background-color:  rgb(28, 85, 241);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  /* Add a hover effect for buttons */
+  button:hover {
+    opacity: 0.9;
+  }
+  
+  /* Center the avatar image inside this container */
+  .imgcontainer {
+    text-align: center;
+    margin-top: 0px;
+    width:400px;
+    height:180px
+  }
+  
+  /* Avatar image */
+  img.avatar {
+    width: 40%;
+    border-radius: 50%;
+  }
+  
+  /* Add padding to containers */
+  .container {
+    padding: 16px;
+    width:30vw;
+    height:500px;
+    color:white;
+  }
+  
+  /* The "Forgot password" text */
+  span.psw {
+    float: right;
+    padding-top: 16px;
+    margin-top:0px;
+  }
+  
+  /* Change styles for span and cancel button on extra small screens */
+  @media screen and (max-width: 300px) {
+    span.psw {
+      display: block;
+      float: none;
+    }
+  }
+  

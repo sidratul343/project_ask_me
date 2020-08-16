@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="{% static 'login.css'%}">
+    <style>
+      h3.msg{
+        text-align: center;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        background-color: white;
+        padding:5px;
+      }
+      form{
+        background-color:  rgba(226, 219, 220, 0.3);
+        width:32.5vw;
+        margin-left: 30%;
+        margin-top: 40px;
+        border-radius: 20px;
+        letter-spacing: 1px;
+    }
+    .avatar{
+      margin-top: 30px;
+    }
+    button:hover {
+      background-color: rgb(18, 21, 218);
+      color:white;
+      font-weight: bold;
+    }
+    </style>
+</head>
+<body class="lg">
+  <div>
+    {% for messages in messages %}
+    <h3 class="msg">{{messages}}</h3>
+    {% endfor %}
+  </div>
+    <form action="/login/" method="post">
+      {% csrf_token %}
+        <div class="imgcontainer">
+            <img src="https://img.freepik.com/free-vector/login-concept-illustration_114360-757.jpg?size=338&ext=jpg" alt="Avatar" class="avatar">
+          </div>  
+        
+        <div class="container">
+          <label for="username"><b>Username</b></label>
+          <input type="text" placeholder="Enter Username" name="username" required>
+      
+          <label for="password"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="password" required>
+      
+          <button type="submit">Login</button>
+          <label>
+            <input type="checkbox" checked="checked" name="remember"> Remember me!
+          </label>
+        </div>
+      </form>
+</body>
+</html>

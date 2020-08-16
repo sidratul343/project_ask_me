@@ -1,0 +1,105 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>personal_info</title>
+    <link rel="stylesheet" href="{% static 'personal.css'%}">
+    <style>
+        a.ques3{
+            color:rgb(71, 70, 70);
+            padding: 10px;
+            background-color:rgb(130, 172, 235);
+            margin: 100px;
+            text-decoration: none;
+            border-radius: 10px;
+            
+        }
+        .ques3:hover {
+            background-color:rgb(16, 23, 37);
+            color:rgb(248, 242, 242);
+            
+          }
+          .dp{
+              padding: 10px;
+              margin-top: 20px;
+              background-color: rgba(45, 116, 175,0.5);
+              border-radius: 10px;
+              cursor: pointer;
+              width: 100px;
+          }
+    
+          .body{
+            margin-right:0;
+            overflow-x: hidden;
+          }
+          * {
+            box-sizing: border-box;
+           
+          }
+          div.background {
+           
+            background-image: url(https://i.pinimg.com/originals/20/31/46/20314605dda6e8ce8691b5c5a8d5bfed.jpg) ;
+           
+            height: 427px;
+            width:95%;
+            
+          }
+      </style>
+</head>
+<body>
+    <p class="row" style="margin:0;">
+        <div class = 'column side'><b>ASK ME!</b></div><div class = 'column right'>BIGGEST QUES-ANS SITE</div>
+    </p>
+    <div class="sidenav">
+        <a href="{% url 'front'%}">logout</a>
+        <a href="{% url 'explore_ques'%}">Explore</a>
+        <a href="{% url 'ask'%}">Ask Questions</a>
+        <a href="{% url 'main_page'%}">People</a>
+        <a href="{% url 'personal'%}">About Us</a>
+        <a href="{% url 'home'%}">Home</a>
+    </div>
+    {% for dest in dest %}
+    <div class="background">
+        <div class="transbox">
+            <p>{{dest.name}}</p>
+            <p>{{dest.workplace}}</p>
+          </div>
+          <div ><img class="img" src ="{{ dest.picture.url }}">
+            <form action="/update_dp/" method="post" enctype="multipart/form-data" class="cp2">
+                {%csrf_token %}
+                <input type="file" id="img" name="img" accept="image/*" >
+                <button type="submit" class="dp">Done</button>
+            </form>
+            <p class="cp" >Change dp</p>
+            </div>
+
+          <div class="details">
+              <p><b>Details:</b></p>
+              <div class="line"></div>
+              <p><b>Age: </b> {{dest.age}} Years old </p>
+              <span><a class="ques3" href="{% url 'update_age'%}">Update age</a></span>
+              <p><b>Department: </b>{{dest.department}} </p>
+              <span><a class="ques3" href="{% url 'update_department'%}">Update department</a></span>
+              <p><b>Gender: </b> {{dest.gender}}</p>
+              <span><a class="ques3" href="{% url 'update_gender'%}">Update gender</a></span>
+              <p><b>Address:</b> {{dest.address}}</p>
+              <span><a class="ques3" href="{% url 'update_address'%}">Update Address</a></span>
+              <p><b>E-mail: </b> {{dest.email}}</p>
+              <span><a class="ques3" href="{% url 'update_email'%}">Update email</a></span>
+              <p class="abt"><b>About You: </b>{{dest.text}}</p>
+              <span><a class="ques3" href="{% url 'update_bio'%}">Update bio</a></span>
+              <p><b>{{dest.workplace}}</b></p>
+              <span><a class="ques3" href="{% url 'update_workplace'%}">Update</a></span>
+        
+            </div>
+            <p class="ques"><a class="ques" href="">Click here to see your questions</a></p>
+            <p class="ques2"><a class="ques2" href="">Click here to see your posts</a></p>
+            <p class="ques"><a class="ques" href="{% url 'update'%}">Update your profile</a></p>
+            <p class="ques2"><a class="ques2" href="">Delete your profile</a></p>
+    </div>
+    {%endfor%}
+    <
+</body>
+</html>

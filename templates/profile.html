@@ -1,0 +1,128 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="{% static 'profile.css'%}">
+    <style>
+      h3.msg{
+        text-align: center;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        background-color: rgb(221, 105, 27);
+        color:white;
+        padding:5px;
+        letter-spacing: 2px;
+        word-spacing: 4px;
+      }
+    </style>
+</head>
+<body>
+    <div class="row">
+    <div class="column side">
+        <h1 class="header">We are glad to see you <span class = 'sp'>Interested!</span> A few more steps to present you amazing. Keep <span class = 'sp'>Exploring!</span> </h1>
+        <div class="r1"></div>
+        <img src="https://quantumdrive.in/wp-content/uploads/2017/04/solution-icon-large.png",alt="logo" class="book">
+        <div class="r1"></div>
+    </div>
+    <form action="/profile_/" method="post" enctype="multipart/form-data">
+      {%csrf_token %}
+        <div class="column middle">
+          <div class="image">
+            <div class="r1"></div>
+            <img src="https://thumbs.dreamstime.com/b/icon-registration-registry-registration-151047317.jpg" alt="Avatar" class="avatar">
+            <div class="r1"></div>
+          </div>
+        <div class="container">
+          <h2>Please fill up the form below:</h2>
+          <div class="r2"></div>
+          <br><br>
+          <div>
+            {% for messages in messages %}
+            <h3 class="msg">{{messages}}</h3>
+            {% endfor %}
+          </div>
+          <label for="uname"><b>Userame</b></label>
+          <input type="text" placeholder="Enter Username" name="uname" required>
+
+          <label for="name"><b>Your name</b></label>
+          <input type="text" placeholder="write your name" name="name" required>
+
+          <label for="age"><b>Age</b></label>
+          <input type="text" placeholder="Enter Your Age" name="age" required>
+
+          <label for="email" ><b>E-mail</b></label>
+          <input type="email" placeholder="Enter E-mail" name="email" class="mail" required>
+
+          <label for="gender"><b>Your gender:</b></label>
+          <input type="text" placeholder="Your gender" name="gender" required>
+         
+          <!--<p>Please select your gender:</p>
+          <input type="radio" id="male" name="gender" value="male">
+          <label for="male">Male</label><br>
+          <input type="radio" id="female" name="gender" value="female">
+          <label for="female">Female</label><br>
+          <input type="radio" id="other" name="gender" value="other">
+          <label for="other">Other</label><br><br>
+
+          <label for="browser" style="width: 100%;"><b>Your Background:</b></label>
+          <select id="browser" name="browser" class="bro" required>
+            <option value="science">
+            <option value="arts">
+            <option value="commerce">
+            <option value="other">
+            </select><br><br>
+
+            def model_form_upload(request):
+    if request.method == 'POST':
+        form = DocumentForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    else:
+        form = DocumentForm()
+    return render(request, 'core/model_form_upload.html', {
+        'form': form
+    })
+     
+        
+          <label for="occupation">You are a?</label>
+          <select id="occupation" name="occupation" class="bro" required>
+            <option value="school">school-student</option>
+            <option value="college">college-student</option>
+            <option value="university">University-student</option>
+            <option value="Teacher">Teacher</option>
+            <option value="others">others</option>
+          </select><br><br>-->
+          <label for="occupation"><b>Your occupation:</b></label>
+          <input type="text" placeholder="your occupation" name="occupation" required>
+         
+          <label for="clas"><b>Your address:</b></label>
+          <input type="text" placeholder="Enter Your current address" name="clas" >
+
+          <label for="dept"><b>Your Department?</b></label>
+          <input type="text" placeholder="Enter Your department name" name="dept" >
+
+          <label for="workplace"><b>Your Educational instituion/workplace:</b></label>
+          <input type="text" placeholder="Your Educational instituion/workplace:" name="workplace" ><br><br>
+
+          <label for="img">Upload your profile picture:</label><br><br>
+          <input type="file" id="img" name="img" accept="image/*"><br><br>
+
+         <label for = "description">Write something about yourself:</label>
+          <textarea rows = "5" cols = "60" name = "description">
+            Enter details here...
+         </textarea><br><br>
+          
+          <p>If you want to share with us your projects/research/achievements,</p>
+          <label for="files">Select files:</label>
+         <input type="file" id="files" name="files" ><br><br>
+
+          <button type="submit">Done</button>
+        </div>
+      </form>
+      </div>
+      </div>
+</body>
+</html>

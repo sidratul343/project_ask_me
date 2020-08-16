@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ask questions</title>
+    <link rel="stylesheet" href="{% static 'ask.css'%}">
+</head>
+<body>
+    <p class="row" style="margin:0;">
+        <div class = 'column side'><b>ASK ME!</b></div><div class = 'column right'>BIGGEST QUESTION-ANSWER SITE</div>
+    </p>
+        <form action="/ask/" method="post" enctype="multipart/form-data">
+            {%csrf_token %}
+            <div class="container">
+
+
+             <p><b>What do you want to know?</b></p>
+              <textarea rows = "10" cols = "60" name = "description">
+             </textarea><br><br><br><br>
+
+              <label for="img"><b>You can upload your problem picture/file here:</b></label><br><br>
+              <input type="file" id="img" name="img"  multiple ><br><br>
+    
+              
+    
+              <button type="submit">Submit</button>
+            </div>
+          </form>
+</body>
+</html>

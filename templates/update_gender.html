@@ -1,0 +1,94 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>update gender</title>
+    <link rel='stylesheet' href="{% static 'main_page.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .edit{
+            margin-left:240px;
+            margin-top: 100px;
+        }
+        .img{
+            height:130px;
+            width:130px;
+            border-radius: 50%;
+            object-fit: cover;
+            vertical-align: middle;
+        }
+        .text{
+            margin-left: 20px;
+            padding:10px 20px;
+            background-color: rgba(236, 110, 20, 0.5);
+            font-size: 25px;
+            border-radius: 15px;
+            letter-spacing: 1.5px;
+            word-spacing: 3px;
+        }
+        input[type=text],input[type=email]{
+            width: 50%;
+            padding: 12px 20px;
+            margin-left: 440px;
+            margin-top: 30px;
+            display: inline-block;
+            border: 2px solid rgb(223, 152, 22);
+            box-sizing: border-box;
+            border-radius: 10px;
+          }
+          .lb{
+              
+              margin-left: 440px;
+              font-size: 25px;
+              padding: 15px;
+              background-color: rgba(236, 110, 20, 0.5);
+              border-radius: 15px;
+              letter-spacing: 2px;
+              word-spacing: 4px;
+          }
+          button {
+            background-color:  rgb(221, 105, 27);;
+            color: rgb(17, 17, 17);
+            padding: 14px 20px;
+            width:150px;
+            height: 150px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            margin-left: 52%;
+            font-size: 25px;
+            margin-top: 5px;
+          }
+          button:hover {
+            background-color:rgba(7, 82, 59, 0.76);
+            color: white;
+          }
+    </style>
+</head>
+<body>
+    <p class="row" style="margin:0;">
+        <div class = 'column side'><b>ASK ME!</b></div><div class = 'column right'>BIGGEST QUES-ANS SITE</div>
+    </p>
+    <div class="sidenav">
+        a href="{% url 'personal'%}">logout</a>
+        <a href="{% url 'explore_ques'%}">Explore</a>
+        <a href="{% url 'ask'%}">Ask Questions</a>
+        <a href="{% url 'main_page'%}">People</a>
+        <a href="{% url 'personal'%}">About Us</a>
+        <a href="{% url 'personal'%}">Your profile</a>
+        <a href="{% url 'home'%}">Home</a>
+
+    </div>
+    <div class="edit"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ9-3tnvepIXSEBrH-NJJooqehlR4O3N5nqXQ&usqp=CAU" class="img"><span class="text">Hi {{request.user}}</span></div>
+    <div class="edit" style="margin-top:30px;"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ9-3tnvepIXSEBrH-NJJooqehlR4O3N5nqXQ&usqp=CAU" class="img"><span class="text">OOPS! Need to update gender? Here you go</span></div>
+    <form action="/update_gender/" method="post" enctype="multipart/form-data">
+    {%csrf_token %}
+    <label for="gender" class="lb"><b>Update your gender here</b></label>
+    <input type="text" placeholder="update gender" name="gender" required>
+    <button type="submit">Done</button>
+    </form>
+</body>
+
+</html>

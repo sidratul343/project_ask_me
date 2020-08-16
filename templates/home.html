@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>homepage</title>
+    <link rel="stylesheet" href="{% static 'home.css'%}">
+    <style>
+      .topnav a {
+        float: right;
+        display: block;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 30px;
+        text-decoration: none;
+        font-size:20px;
+      }
+      .main{
+        letter-spacing: 3px;
+        word-spacing: 5px;
+        color:rgb(104, 101, 101);
+        font-size: 50px;
+        font-style: italic;
+        padding-left: 20px;
+        
+      }
+     
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>WELCOME to <span class = 'sp'>ASK ME</span> </h1>
+        
+      </div>
+      
+      <div class="topnav">
+        <a href="{% url 'personal'%}">logout</a>
+        <a href="{% url 'explore_ques'%}">Explore</a>
+        <a href="{% url 'ask'%}">Ask Questions</a>
+        <a href="{% url 'main_page'%}">People</a>
+        <a href="{% url 'personal'%}">About Us</a>
+        <a href="{% url 'personal'%}">Your profile</a>
+      </div>
+      
+      <div class="row">
+        <div class="column side_1">
+          <h2>ASK ME</h2>
+          <p></p>
+        </div>
+        
+        <div class="column middle">
+          <h2 class="main">-For You</h2>
+          <h3></h3>
+        </div>
+        <div class="column side">
+         
+          <h2 class="main">-By You</h2>
+        </div>
+      </div>
+      
+      <div class="footer">
+        <p>You have to create your profile first by clicking <span><a class='here' href="{% url 'profile'%}">HERE</a></span> to  <span class="u">EXPLORE </span>  more!</p>
+      </div>
+</body>
+</html>

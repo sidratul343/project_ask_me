@@ -1,0 +1,103 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ask questions</title>
+    <link rel="stylesheet" href="{% static 'explore_ques.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        .email{
+            background-color: rgb(73, 75, 92);
+            width:40vw;
+            margin-left: 38vw;
+        }
+        .mail{
+            color:rgb(194, 190, 190);
+            font-size: 30px;
+            padding-left: 10vw;
+            text-decoration: none;
+        }
+        a:hover:visited{
+            color:rgb(253, 251, 251);
+            
+        }
+        .ans{
+            width:300px;
+            height: 50px;
+            padding:8px;
+        }
+    </style>
+</head>
+<body>
+    <p class="row" style="margin:0;">
+        <div class = 'column side'><b>ASK ME!</b></div><div class = 'column right'>BIGGEST QUES-ANS SITE</div>
+    </p>
+    <div class="sidenav" >
+        <a style="text-decoration:none;" href="{% url 'front'%}">logout</a>
+        <a style="text-decoration:none;" href="{% url 'ask'%}">Ask Questions</a>
+        <a style="text-decoration:none;" href="{% url 'main_page'%}">People</a>
+        <a style="text-decoration:none;" href="{% url 'personal'%}">About Us</a>
+        <a style="text-decoration:none;" href="{% url 'personal'%}">Your profile</a>
+        <a style="text-decoration:none;" href="{% url 'home'%}">Home</a>
+
+    </div>
+           <div class="topnav"><p></p>
+                  <div class="search-container">
+                        <form action="/main_page/">
+
+                            <input type="text" placeholder="Search.." name="search">
+                            <button type="submit" class="butt"><i class="fa fa-search"></i></button>
+                        </form>
+                  </div>
+            </div>
+         
+    {% for ddests in ddests%}
+    
+    
+    <div class="part">
+        
+        <p class="row" >
+           
+            <div class = 'column2 side2'><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAkFBMVEX///8zMzMtLS1fX18nJyeVlZUwMDAqKiobGxsYGBgiIiIdHR0gICAlJSUVFRUpKSnPz8/p6ekRERFpaWn39/fZ2dlBQUG5ubk3Nzff3994eHhJSUmmpqb5+fllZWWxsbFRUVGIiIiNjY2dnZ3Jycl0dHTBwcE+Pj6AgIBGRkZPT09YWFjl5eWioqIICAjv7++zG60sAAAGwElEQVR4nO2dZ3OjMBCGjQDRi8E9tnGLS5zE///fHYRzzgJsihEr3+zzLZPMjd6R2F1t0fV6CIIgCIIgCIIgCIIgCIIgCIIgCIIgCIIgCIIgSG36/ni+mYVLeRnONvOx34deUJss/K1s6rrpeBpJ0Dwn/tGRt/4CemltMIiWpq4QKQ9xdGcZDaAX+CR7+dssUver0vxe7qEX2ZzBlliP5P0VadHta27kQnUdWqovgTqG+oJf5NxzKslLcUgEveCa7CZ2tf373Uf74EMvugaLd7eevh+N7hF63ZUZTpTa+hKcwxR66dWYB/U38O82Bi/xNb7rDfUlGOKf1MWqjgnNY8rQCkoYjLSnBEqS8iG0a7xMymOYMrSTwBHO4PC8wFjiG7SO+5yePaIp3hlayD1krxWBsWN8h5ZSzNpuSaAk6VtoMUWMg9YESlKwg5aTp2+1KFCinngG9dSGGf2HJpznn7f3EaYYY2hJLO2e0QTRzul7O57wFmUNLeoW321dYGxPP6Fl3XBu18ykaAL5fS5bGG+iOFd+Llso0iYODS4CY48hSvlm1r4hTVFUaGkpg2cSMw+hFFpbSmTyUijpYgTgMh87k6DNoMUlXLgd0viYatDqEsZtx9y36CIUM7hZ0gQhrKnWNIdfBbKClhffm/hEbFcCaH293p7nZxh/iENogb1ts0paVUz4alTIzxsmKBtogb03noYmNjUhtMAF5auQghcxLq2noDIKJ9AKOTsLSQJPuQ05RqU/6Jf/XaH73ys0oNNRU145GmEUfnJXCJ0X5m5LXeh8G29/KFnQ3mLB8/6bQMDbaw6co7YRtEBeGf0rBL4WfGyrxaQYD76KOOeXD04Q4Abs8zWmAqQTB2220eQJwE0p50s+XUHLi9nwTEUJkRH2ed4uBPgM46iG4x6KUZnJ9dIQpTmZf0oTo7F9z/oLEqrNObISBamQZmozyjO9oax3pVJra3wOlfkSn6rbjpkIyRGlkbbP3POfai9gi5HgebZfQnZdT1h4ZgvFqOL/MGQitydamdiKuUite+wmuo3TY6NbmyXQFvZ6U2YTG5em2UbjADoHxbBmzKndLJrsM/GfI0JI+o+BwvhEt5GxYZrhKRXg3nTLnsmb0ibl9yVzDsSbuAiZfA21alubd8ZTKCKZmZRMMZhaNQ9qyAikBz6rfArWKUo0qDMwMVixdzCBGqBvmGeKNG71ROBQY+8UrmDjJFeyw2vOqeJOqJnxfUssR3FDmJlyJm6Vbhj/kEm5muJZmV/kbEbDIWXn7TPMvr9ggrfQPOKclUit0SON/aORLV6Zy85W2wg5l+Sntvd15563k79zVQ9LmCGLe8zyyUXq2OE4V+j01xM9X7cy4CsxpahFdW9iB6vNeJrKXFz8eWhYXj5ZTt058OorsTcKS4rEsw1ncvg4TYhlOYV/opkiJIAr0F/d7aqlCfd+qcvC5GVK2RZ8YWVo9kuc0CufZ6PmK0pB+DobmLKfWNU1Uv0k3HWwAhGt8FpbAtEPr/oq3XjlFriEzPYprvyK+3dlutH0ByKpokuqQFnRZvjrg2t6ufNKiWIHJxV+nKIVpuPNWbN003QUT/MUx7R1i8jq/uV3j6Xvj6OvzXF2VL+i8fDVXANSGcGywEUM5mTUPHyOrA/BPeNg45iUustmucD9yaLEmggcni7UIE1ikO/3+hp3b2koS+3S3A4Ut2+yasayXqASnf6F6tQ6iXhP9E9spB0Hm/OqLmG4tky2JhCEQhUPYxbH/JOe1LHkqFzkcDsy8l24miHW57ijxa1fxAw+1N19ldNoRg2lOG61VgKFPMcHj+pSxbIms689G8UsPv1IPSu6+WASnLjw/cEp/beyJ0up5ti6ax1WZzkMl/LqjQSGZRY+1M5giJE7vZNaKxJKf57VJ9XHTpWDAAZnzrULmpjg16sZ58kuGgCHcSHfWYSEWrXk1jk/9yxyRYmAnjFXS/vfJC67ERhLBHKMM/7f4K9EEHOz5T3jfAvENPCe7zRQBko6HyXlPv+bQVt1rfCN72BlnoYdnY3ZdGdlrridxm/+d+cCO35icMR3vLmYLpuGt92f0YTunle4dGxHr3Q31815fPs+RkdJxs9Off0t5KMbhTOoLYw3sZN6+IX3ey0PIJ383x5qV3emIowu3H5pdwVPvA7GZne8H6R5jM2/hsr5ncRShdzzUgO+j3mWQrj3SAMf0jg65X1M13DOMMXi7RInkJY0weP8oOkFLGK7QjlHbjuXQPPN90OMzjI0KyHH2hAEQRAEQRAEQRAEQRAEQRAEQRAEQRAEQRAEQbrhD6FAcRcG7iuqAAAAAElFTkSuQmCC" class="pp"></div>
+            <h3><a href="{% url 'main_page'%}" style="text-decoration: none; color:black" >{{ddests.username}}</a></h3>
+            <h3 style="padding-left:4vw;">{{ddests.email}}</h3>
+            {%if ddests.ques%}
+            <div class = 'column2 right2'><h2 style="color: rgb(22, 50, 82); font-style:italic">Question: </h2><span class ="nam"> {{ddests.ques}}
+                {%endif%}
+                
+            
+        </p><br><br>
+        
+        {%if ddests.image%}
+        <a href="{{ddests.image.url}}">
+        <img src="{{ddests.image.url}}" class="ques"></a><br><br><br><br>
+        {%endif%}
+        <div></div>
+
+        <p class="row" >
+        <!--<div><form action="/mail/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="sub"><b>subject</b></label>
+           <input type="text" placeholder="Enter subject" name="sub" required>
+            <label for="email" ><b>To:</b></label>
+            <input type="email" placeholder="Enter E-mail" name="email" class="ans" required>
+            <textarea rows = "5" cols = "60" name = "description" placeholder="Write Your answer.." class="cmnt"></textarea><br><br><br>
+            <input type="file" id="file" name="file" class="icon" multiple><br><br>
+            <button type="submit" style="background-color: rgb(184, 202, 235);margin-left:70px;">submit</button>
+            </form>
+        </div>-->
+    </div>
+    </div>
+    <div class="email"><a class="mail" style="text-decoration: none; " href="https://mail.google.com/mail/?view=cm&fs=1&to={{ddests.email}}&su=SUBJECT&body=BODY" target="_blank">Send your answer</a></div>
+    
+    
+    <br><br><br>
+    {%endfor%}
+    
+</body>
+
+</html>
